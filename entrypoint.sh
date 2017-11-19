@@ -18,6 +18,11 @@ sed -i -e \
   cloudinit/sources/DataSourceScaleway.py
 git commit -am'Fix urllib3 imports'
 
+# copy custom config files from volume
+cp -v /config/cloud.cfg.d/* config/cloud.cfg.d/
+git add config/cloud.cfg.d/
+git commit -m'Add custom config files'
+
 # install dependencies
 # (this is extracted from `packages/bddeb` script)
 python tools/read-dependencies \

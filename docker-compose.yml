@@ -5,5 +5,6 @@ services:
     image: rpi-cloud-init-builder:latest
     volumes:
       - ./build:/build
+      - ./config:/config
     environment:
       CLOUD_INIT_VERSION: "17.1"
