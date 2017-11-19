@@ -1,0 +1,9 @@
+version: '2'
+services:
+  rpi-cloud-init-builder:
+    build: ./
+    image: rpi-cloud-init-builder:latest
+    volumes:
+      - ./build:/build
+    environment:
+      CLOUD_INIT_VERSION: "17.1"
