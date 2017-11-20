@@ -136,7 +136,7 @@ system_info:
    # Unknown/fallback distro.
    distro: ubuntu
 {% endif %}
-{% if variant in ["ubuntu", "unknown", "debian"] %}
+{% if variant in ["ubuntu", "unknown"] %}
    # Default user name + that default users groups (if added/used)
    default_user:
      name: ubuntu
@@ -166,6 +166,24 @@ system_info:
          primary: http://ports.ubuntu.com/ubuntu-ports
          security: http://ports.ubuntu.com/ubuntu-ports
    ssh_svcname: ssh
+{% elif variant in ["debian"] %}
+   # Default user name + that default users groups (if added/used)
+   default_user:
+     name: debian
+     lock_passwd: True
+     gecos: Debian
+     groups: [adm, audio, cdrom, dialout, dip, floppy, plugdev, video]
+     shell: /bin/bash
+   # Other config here will be given to the distro class and/or path classes
+   paths:
+      cloud_dir: /var/lib/cloud/
+      templates_dir: /etc/cloud/templates/
+      upstart_dir: /etc/init/
+   package_mirrors:
+     - arches: [default]
+       failsafe:
+         primary: http://ftp.debian.org/debian
+   ssh_svcname: sshd
 {% elif variant in ["centos", "rhel", "fedora", "suse"] %}
    # Default user name + that default users groups (if added/used)
    default_user:
