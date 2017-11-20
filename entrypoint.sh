@@ -2,6 +2,9 @@
 
 CLOUD_INIT_VERSION=${CLOUD_INIT_VERSION:-17.1}
 
+# clean build directory
+rm -f /build/*
+
 # get cloud-init source and checkout tag'd version
 git clone https://git.launchpad.net/cloud-init /tmp/cloud-init
 cd /tmp/cloud-init
