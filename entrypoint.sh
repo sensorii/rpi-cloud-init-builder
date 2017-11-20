@@ -23,7 +23,8 @@ git commit -am'Fix urllib3 imports'
 
 # copy custom config files from volume
 cp -v /config/cloud.cfg.d/* config/cloud.cfg.d/
-git add config/cloud.cfg.d/
+cp -v /config/cloud.cfg.tmpl config/
+git add config/
 git commit -m'Add custom config files'
 
 # install dependencies
