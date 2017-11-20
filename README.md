@@ -6,7 +6,7 @@ Set `CLOUD_INIT_VERSION` in [docker-compose.yml](./docker-compose.yml)
 to a [cloud-init git reference](https://git.launchpad.net/cloud-init/refs/).
 (Default is `17.1`).
 
-Custom config files for `/etc/cloud/cloud.cfg.d/` are in [config/cloud.cfg.d/](./config/cloud.cfg.d).
+Custom config files for `/etc/cloud/` are in [config/](./config).
 
 Run [./build.sh](./build.sh) to build the packages on x86 host machine using [qemu-user-static](https://github.com/multiarch/qemu-user-static).
 
