@@ -126,6 +126,17 @@ cloud_final_modules:
  - final-message
  - power-state-change
 
+{% if variant in ["debian"] %}
+apt:
+  # Preserves the existing /etc/apt/sources.list.  Default: false - do
+  # overwrite sources_list. If set to true then any "mirrors" configuration
+  # will have no effect.  Set to true to avoid affecting sources.list. In that
+  # case only "extra" source specifications will be written into
+  # /etc/apt/sources.list.d/*
+  # http://cloudinit.readthedocs.io/en/latest/topics/examples.html#additional-apt-configuration
+  preserve_sources_list: true
+{% endif %}
+
 # System and/or distro specific settings
 # (not accessible to handlers/transforms)
 system_info:
